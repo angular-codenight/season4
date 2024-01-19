@@ -8,12 +8,17 @@ import { Component } from '@angular/core';
 export class TodoListComponent {
   tasks:any[]=[]
   newTask='';
-  static i=1;
+
 
   addNewTask() {
+    const id =Math.random();
+    const taskStatus=id>0.5?'enable':'disable';
     if(this.newTask){
-      this.tasks.push({id:TodoListComponent.i,name:this.newTask});
-      TodoListComponent.i++;
+      this.tasks.push(
+        {id:id,
+          name:this.newTask,
+          status:taskStatus});
+
     }
   }
 
@@ -22,5 +27,9 @@ export class TodoListComponent {
   }
   tackByFn(index:number,item:any){
     return item.id;
+  }
+
+  returnTaskStatus(task:any){
+    return task.status==='enable'?1:0.5
   }
 }
