@@ -6,16 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  tasks:string[]=[]
+  tasks:any[]=[]
   newTask='';
+  static i=1;
 
   addNewTask() {
     if(this.newTask){
-      this.tasks.push(this.newTask);
+      this.tasks.push({id:TodoListComponent.i,name:this.newTask});
+      TodoListComponent.i++;
     }
   }
 
   onRemoveTask() {
     this.tasks.pop();
+  }
+  tackByFn(index:number,item:any){
+    return item.id;
   }
 }
