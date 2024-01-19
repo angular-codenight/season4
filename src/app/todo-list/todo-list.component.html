@@ -10,7 +10,7 @@
 
     <br><br>
     <div
-      *ngIf="tasks.length>0"
+      *ngIf="tasks.length>0;else TaskNotFound"
 
       class="alert alert-warning d-flex align-items-center justify-content-between"
 
@@ -19,7 +19,11 @@
     </h3>
       <button class="btn btn-danger" (click)="onRemoveTask()">Delete</button>
     </div>
-
+<ng-template #TaskNotFound>
+  <div>
+    <h1>no task found</h1>
+  </div>
+</ng-template>
 
 
 
