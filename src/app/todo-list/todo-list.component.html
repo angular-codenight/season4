@@ -9,25 +9,47 @@
 
 
     <br><br>
-    <div
-      *ngIf="tasks.length>0;else TaskNotFound"
 
-      class="alert alert-warning d-flex align-items-center justify-content-between"
-
-    ><h3>
-      {{newTask}}
-    </h3>
+    @if (tasks.length>0) {
+      <div
+        class="alert alert-warning d-flex align-items-center justify-content-between"
+        ><h3>
+        {{newTask}}
+      </h3>
       <button class="btn btn-danger" (click)="onRemoveTask()">Delete</button>
     </div>
-<ng-template #TaskNotFound>
-  <div>
-    <h1>no task found</h1>
-  </div>
-</ng-template>
+  } @else {
+    <div>
+      <h1>no task found</h1>
+    </div>
+  }
+  <ng-template #TaskNotFound>
+    <div>
+      <h1>no task found</h1>
+    </div>
+  </ng-template>
+
+
+
+  <!--    <div-->
+  <!--      *ngIf="tasks.length>0;else TaskNotFound"-->
+
+  <!--      class="alert alert-warning d-flex align-items-center justify-content-between"-->
+
+  <!--    ><h3>-->
+  <!--      {{newTask}}-->
+<!--    </h3>-->
+<!--      <button class="btn btn-danger" (click)="onRemoveTask()">Delete</button>-->
+<!--    </div>-->
+<!--<ng-template #TaskNotFound>-->
+<!--  <div>-->
+<!--    <h1>no task found</h1>-->
+<!--  </div>-->
+<!--</ng-template>-->
 
 
 
 
 
-  </div>
+</div>
 </div>
