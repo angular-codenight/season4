@@ -3,5 +3,19 @@
   margin-bottom: 10px;
   button{
     min-width: 15rem;
+
   }
+}
+.disable{
+  opacity: 0.5;
+  background-color: #1e1e1e;
+  cursor: text;
+}
+.enable{
+  opacity: 1;
+  background-color: greenyellow;
+  cursor: pointer;
+}
+.done{
+  text-decoration: line-through;
 }
