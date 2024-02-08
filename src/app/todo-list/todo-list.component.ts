@@ -17,7 +17,8 @@ export class TodoListComponent {
       this.tasks.push(
         {id:id,
           name:this.newTask,
-          status:taskStatus});
+          status:taskStatus
+        });
 
     }
   }
@@ -29,7 +30,11 @@ export class TodoListComponent {
     return item.id;
   }
 
+
+
   returnTaskStatus(task:any){
     return task.status==='enable'?1:0.5
   }
+
+
 }

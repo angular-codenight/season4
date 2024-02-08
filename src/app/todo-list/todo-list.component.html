@@ -9,20 +9,32 @@
 
 
     <br><br>
+<div  *ngFor="let task of tasks;let i=index;trackBy:tackByFn"
 
-    <div
-      *ngFor="let task of tasks;let i=index;trackBy:tackByFn"
 
-      class="alert alert-warning d-flex align-items-center justify-content-between"
 
-    >
-      <h3 class="text-danger">{{task.id}}</h3>
-      <h3>
+    class="alert alert-success d-flex align-items-center justify-content-between"
+  >
+
+
+
+
+
+    <h3 class="text-danger">{{task.id}}</h3>
+    <h3>
       {{task.name}}
     </h3>
-      <button class="btn btn-danger" (click)="onRemoveTask()" [ngStyle]="{'opacity':returnTaskStatus(task),
-      'background-color':task.status==='enable'?'green':'blue'}">Delete</button>
-    </div>
+<!--    <button class="btn btn-danger" (click)="onRemoveTask()"-->
+<!--            [ngClass]="{'disable':task.status==='disable','enable':task.status==='enable'}"-->
+<!--    >Delete</button>-->
+    <button class="btn btn-danger" (click)="onRemoveTask()"
+            [ngClass]="[task.status==='enable'?'enable':'disable']"
+    >Delete</button>
+  </div>
+
+
+</div>
+
 <ng-template #TaskNotFound>
   <div>
     <h1>no task found</h1>
@@ -34,4 +46,4 @@
 
 
   </div>
-</div>
+
