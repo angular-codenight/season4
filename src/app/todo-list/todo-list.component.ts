@@ -8,10 +8,12 @@ import { Component } from '@angular/core';
 export class TodoListComponent {
   tasks:any[]=[]
   newTask='';
+  importance='1';
 
 
 
   addNewTask() {
+
     const id =Math.random();
     const taskStatus=id>0.5?'enable':'disable';
     if(this.newTask){
@@ -19,10 +21,12 @@ export class TodoListComponent {
         {id:id,
           name:this.newTask,
           status:taskStatus,
-          done:false
+          done:false,
+          importance:this.importance
         });
 
     }
+    console.log(this.tasks)
   }
 
   onRemoveTask() {
