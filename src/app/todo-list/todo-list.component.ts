@@ -10,6 +10,7 @@ export class TodoListComponent {
   newTask='';
 
 
+
   addNewTask() {
     const id =Math.random();
     const taskStatus=id>0.5?'enable':'disable';
@@ -17,7 +18,8 @@ export class TodoListComponent {
       this.tasks.push(
         {id:id,
           name:this.newTask,
-          status:taskStatus
+          status:taskStatus,
+          done:false
         });
 
     }
@@ -37,4 +39,11 @@ export class TodoListComponent {
   }
 
 
+  doneTask(id:number, $event: any) {
+    const taskStatus=$event.target.checked;
+    const index=this.tasks.findIndex(task=>task.id===id);
+    if(index!==-1){
+      this.tasks[index].done=taskStatus;
+    }
+  }
 }
