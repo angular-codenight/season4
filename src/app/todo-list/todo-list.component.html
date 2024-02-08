@@ -9,16 +9,35 @@
 
 
     <br><br>
-    <div
-      *ngIf="tasks.length>0;else TaskNotFound"
+    @for (task of tasks;track task.id;let index=$index;let first=$first;let last=$last){
+      <div
+        class="alert alert-warning d-flex align-items-center justify-content-between"
+      >
+        <h3 class="text-danger">{{index}} first:{{first}} last:{{last}}</h3>
+        <h3>
+          {{task.name}}
+        </h3>
+        <button class="btn btn-danger" (click)="onRemoveTask()">Delete</button>
+      </div>
+    } @empty {
+      <h1>no task found</h1>
+    }
+    @for (char of 'angular';track char){
+      <h6>{{char}}</h6>
+    }
 
-      class="alert alert-warning d-flex align-items-center justify-content-between"
+<!--    <div-->
+<!--      *ngFor="let task of tasks;let i=index;trackBy:tackByFn"-->
 
-    ><h3>
-      {{newTask}}
-    </h3>
-      <button class="btn btn-danger" (click)="onRemoveTask()">Delete</button>
-    </div>
+<!--      class="alert alert-warning d-flex align-items-center justify-content-between"-->
+
+<!--    >-->
+<!--      <h3 class="text-danger">{{i}}</h3>-->
+<!--      <h3>-->
+<!--      {{task.name}}-->
+<!--    </h3>-->
+<!--      <button class="btn btn-danger" (click)="onRemoveTask()">Delete</button>-->
+<!--    </div>-->
 <ng-template #TaskNotFound>
   <div>
     <h1>no task found</h1>
