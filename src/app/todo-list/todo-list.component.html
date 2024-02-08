@@ -48,12 +48,31 @@
         <h3>
           {{task.name}}
         </h3>
-        <div [ngSwitch]="task.importance">
-          <h1 *ngSwitchCase="'1'" class="text-success">low</h1>
-          <h2 *ngSwitchCase="'2'" class="text-warning">middle</h2>
-          <h3 *ngSwitchCase="'3'" class="text-danger">high</h3>
-          <h4 *ngSwitchDefault>low </h4>
-        </div>
+<!--        <div [ngSwitch]="task.importance">-->
+<!--          <h1 *ngSwitchCase="'1'" class="text-success">low</h1>-->
+<!--          <h2 *ngSwitchCase="'2'" class="text-warning">middle</h2>-->
+<!--          <h3 *ngSwitchCase="'3'" class="text-danger">high</h3>-->
+<!--          <h4 *ngSwitchDefault>low </h4>-->
+<!--        </div>-->
+        @switch (task.importance){
+          @case ('1'){
+          <h1  class="text-success">low</h1>
+          }
+          @case ('2'){
+
+          <h2  class="text-warning">middle</h2>
+          }
+          @case ('3'){
+          <h3  class="text-danger">high</h3>
+          }
+          @default {
+
+          <h4 >low </h4>
+          }
+        }
+
+
+
 
         <!--    <button class="btn btn-danger" (click)="onRemoveTask()"-->
         <!--            [ngClass]="{'disable':task.status==='disable','enable':task.status==='enable'}"-->
